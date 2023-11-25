@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generative AI Example</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/text-embedding"></script>
+</head>
+<body>
+  <h1>Generative AI Example</h1>
+  <textarea id="seedText" placeholder="Enter seed text"></textarea>
+  <button onclick="generateText()">Generate Text</button>
+  <div id="output"></div>
+
+  <script>
+    async function generateText() {
+      const seedText = document.getElementById('seedText').value;
+      const model = await tf.text.embedding.word2Vec.load('path/to/your/pretrained/model');
+
+      // Generate text based on seed text
+      const generatedText = generate(model, seedText);
+
+      // Display the generated text
+      document.getElementById('output').innerText = generatedText;
+    }
+
+    function generate(model, seedText) {
+      // Use the model to generate text based on the seed text
+      // This is a simplified example, and you may need to fine-tune the model for better results
+      const generatedText = 'Generated text goes here...';
+
+      return generatedText;
+    }
+  </script>
+</body>
+</html>
